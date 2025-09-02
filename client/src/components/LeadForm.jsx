@@ -43,11 +43,11 @@ const LeadForm = ({ onLeadAdded }) => {
   }
 
   try {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}/leads`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  });
+    const response = await fetch("http://localhost:5000/api/leads/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
     if (response.ok) {
       const newLead = await response.json();
@@ -94,7 +94,7 @@ const LeadForm = ({ onLeadAdded }) => {
 
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-2 hover:from-emerald-700 hover:to-emerald-800 transition-colors shadow-md font-medium"
+        className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 text-white py-2 rounded-lg hover:from-emerald-700 hover:to-emerald-800 transition-colors shadow-md font-medium"
       >
         Save Lead
       </button>
